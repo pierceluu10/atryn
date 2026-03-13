@@ -1,53 +1,65 @@
-// Amazon Bedrock integration with mock mode fallback
+// Google Gemini integration with mock mode fallback
 // Set MOCK_AI=true to use stub responses during local development
 
 const MOCK_MODE = process.env.MOCK_AI === "true";
 
-interface BedrockMessage {
+interface GeminiMessage {
   role: string;
   content: string;
 }
 
 export async function invokeModel(
   systemPrompt: string,
-  messages: BedrockMessage[]
+  messages: GeminiMessage[]
 ): Promise<string> {
   if (MOCK_MODE) {
     return mockResponse(messages);
   }
 
-  // Real Bedrock call via AWS SDK
-  const { BedrockRuntimeClient, InvokeModelCommand } = await import(
-    "@aws-sdk/client-bedrock-runtime"
-  );
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    throw new Error("GEMINI_API_KEY environment variable is required");
+  }
 
-  const client = new BedrockRuntimeClient({
-    region: process.env.AWS_REGION || "us-east-1",
-  });
+  const model = process.env.GEMINI_MODEL || "gemini-2.0-flash";
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+
+  const contents = messages.map((m) => ({
+    role: m.role === "assistant" ? "model" : "user",
+    parts: [{ text: m.content }],
+  }));
 
   const payload = {
-    anthropic_version: "bedrock-2023-05-31",
-    max_tokens: 1024,
-    system: systemPrompt,
-    messages: messages.map((m) => ({
-      role: m.role,
-      content: m.content,
-    })),
+    system_instruction: {
+      parts: [{ text: systemPrompt }],
+    },
+    contents,
+    generationConfig: {
+      maxOutputTokens: 1024,
+      temperature: 0.7,
+    },
   };
 
-  const command = new InvokeModelCommand({
-    modelId: process.env.BEDROCK_MODEL_ID || "anthropic.claude-3-haiku-20240307-v1:0",
-    contentType: "application/json",
-    accept: "application/json",
+  const response = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
   });
 
-  const response = await client.send(command);
-  const body = JSON.parse(new TextDecoder().decode(response.body));
-  return body.content?.[0]?.text || "I'm sorry, I couldn't generate a response.";
+  if (!response.ok) {
+    const errText = await response.text();
+    console.error("Gemini API error:", errText);
+    throw new Error(`Gemini API error: ${response.status}`);
+  }
+
+  const data = await response.json();
+  return (
+    data.candidates?.[0]?.content?.parts?.[0]?.text ||
+    "I'm sorry, I couldn't generate a response."
+  );
 }
 
-function mockResponse(messages: BedrockMessage[]): string {
+function mockResponse(messages: GeminiMessage[]): string {
   const lastMsg = messages[messages.length - 1]?.content || "";
 
   if (lastMsg.includes("email") || lastMsg.includes("draft")) {

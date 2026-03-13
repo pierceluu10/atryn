@@ -6,7 +6,7 @@ export default function LandingPage() {
       {/* Nav */}
       <nav className="w-full px-6 md:px-12 py-5 flex items-center justify-between">
         <span className="font-serif text-2xl text-primary tracking-tight">
-          Campus Compass
+          ATRYN
         </span>
         <div className="hidden md:flex items-center gap-8 text-sm text-gray-600">
           <a href="#features" className="hover:text-primary transition-colors">
@@ -138,7 +138,7 @@ export default function LandingPage() {
             Built for students, by students.
           </h2>
           <p className="text-lg text-white/70 leading-relaxed">
-            Campus Compass was built during a hackathon to solve a real problem:
+            ATRYN was built during a hackathon to solve a real problem:
             navigating the overwhelming number of resources at a university.
             Powered by AWS and AI, it makes discovery effortless.
           </p>
@@ -147,7 +147,7 @@ export default function LandingPage() {
 
       {/* Footer */}
       <footer className="py-8 px-6 text-center text-sm text-gray-400">
-        &copy; {new Date().getFullYear()} Campus Compass &middot; Built with
+        &copy; {new Date().getFullYear()} ATRYN &middot; Built with
         Next.js, Tailwind CSS, and AWS
       </footer>
     </div>

@@ -42,7 +42,7 @@ export default function ChatMessage({ message, onCardClick }: Props) {
             </div>
           )}
           <span className="text-xs text-gray-400">
-            {isUser ? "You" : "Campus Compass"}
+            {isUser ? "You" : "ATRYN"}
           </span>
         </div>
 

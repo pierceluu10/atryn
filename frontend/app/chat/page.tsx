@@ -12,7 +12,7 @@ const WELCOME_MESSAGE: ChatMessageType = {
   id: "welcome",
   role: "assistant",
   content:
-    "Welcome to Campus Compass! I can help you discover labs, professors, services, and opportunities on campus. Tell me about your interests, or try one of the suggestions below.",
+    "Welcome to ATRYN! I can help you discover labs, professors, services, and opportunities on campus. Tell me about your interests, or try one of the suggestions below.",
   timestamp: Date.now(),
 };
 
@@ -106,7 +106,7 @@ export default function ChatPage() {
               />
             </svg>
           </div>
-          <span className="font-serif text-lg text-primary">Campus Compass</span>
+          <span className="font-serif text-lg text-primary">ATRYN</span>
         </Link>
         <div className="flex items-center gap-3">
           <button
@@ -190,7 +190,7 @@ export default function ChatPage() {
             </button>
           </div>
           <p className="text-[10px] text-gray-300 text-center mt-2">
-            Campus Compass uses curated data. Results are for discovery — always verify details directly.
+            ATRYN uses curated data. Results are for discovery — always verify details directly.
           </p>
         </div>
       </div>

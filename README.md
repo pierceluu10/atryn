@@ -1,4 +1,4 @@
-# Campus Compass
+# ATRYN
 
 An AI-powered chatbot that helps university students discover relevant labs, professors, campus services, and opportunities based on their interests. Built with Next.js, Tailwind CSS, and AWS.
 
@@ -7,7 +7,7 @@ An AI-powered chatbot that helps university students discover relevant labs, pro
 **Frontend:** Next.js 14 (App Router, TypeScript) with Tailwind CSS, deployed on AWS Amplify
 **Backend:** AWS Lambda functions behind Amazon API Gateway
 **Database:** Amazon DynamoDB (with local seed data fallback)
-**AI:** Amazon Bedrock (Claude) for personalized summaries, Q&A, and email drafting
+**AI:** Google Gemini for personalized summaries, Q&A, and email drafting
 **Auth:** Amazon Cognito (scaffolded — guest mode for MVP)
 **Monitoring:** Amazon CloudWatch
 
@@ -65,7 +65,7 @@ Mock mode is on by default — the app uses the seed dataset in `data/seed-resou
 │   └── shared/
 │       ├── types.ts          # Backend types
 │       ├── search.ts         # Keyword-based search/ranking
-│       ├── bedrock.ts        # Bedrock integration + mock fallback
+│       ├── gemini.ts         # Gemini integration + mock fallback
 │       ├── data.ts           # DynamoDB + seed data access
 │       └── prompts.ts        # Prompt templates
 ├── data/
@@ -110,17 +110,18 @@ All records are sample data for demo purposes.
 ### Backend (Lambda env vars)
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `MOCK_AI` | `true` | Stub Bedrock responses |
+| `MOCK_AI` | `true` | Stub Gemini responses |
 | `USE_DYNAMO` | `false` | Read from DynamoDB vs seed JSON |
 | `AWS_REGION` | `us-east-1` | AWS region |
 | `DYNAMO_TABLE` | `CampusResources` | DynamoDB table name |
-| `BEDROCK_MODEL_ID` | `anthropic.claude-3-haiku-20240307-v1:0` | Bedrock model |
+| `GEMINI_API_KEY` | (none) | Google Gemini API key |
+| `GEMINI_MODEL` | `gemini-2.0-flash` | Gemini model name |
 
 ## AWS Deployment
 
 See **[external.md](./external.md)** for step-by-step AWS setup instructions covering:
 - DynamoDB table creation and seeding
-- Bedrock model access
+- Gemini API key setup
 - Lambda deployment
 - API Gateway configuration
 - Amplify frontend hosting
@@ -137,13 +138,13 @@ See **[external.md](./external.md)** for step-by-step AWS setup instructions cov
 - Mock mode for all API calls (works offline)
 - Seed dataset with 25 records
 - All 5 Lambda handlers
-- Bedrock integration with mock fallback
+- Gemini integration with mock fallback
 - Prompt templates for all AI modes
 - DynamoDB schema and data access layer
 
 ### Scaffolded / Future Work
 - Cognito authentication (guest mode active)
-- Real Bedrock calls (mock mode by default)
+- Real Gemini calls (mock mode by default)
 - DynamoDB read path (seed JSON fallback active)
 - CloudWatch dashboard setup
 - Conversation persistence across sessions
@@ -156,6 +157,6 @@ See **[external.md](./external.md)** for step-by-step AWS setup instructions cov
 - **AWS Lambda** — Serverless backend
 - **Amazon API Gateway** — REST API
 - **Amazon DynamoDB** — NoSQL database
-- **Amazon Bedrock** — AI/LLM layer
+- **Google Gemini** — AI/LLM layer
 - **AWS Amplify** — Frontend hosting
 - **Amazon CloudWatch** — Monitoring

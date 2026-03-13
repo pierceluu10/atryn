@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Campus Compass",
+  title: "ATRYN",
   description:
     "Discover labs, professors, services, and opportunities tailored to your interests.",
 };
