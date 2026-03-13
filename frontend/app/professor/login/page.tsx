@@ -93,7 +93,13 @@ export default function ProfessorLoginPage() {
             </Button>
           </form>
           <div className="mt-6 text-center text-sm text-gray-500">
-            <Link href="/login" className="text-primary hover:underline">
+            Don&apos;t have an account?{" "}
+            <Link href="/professor/register" className="text-primary font-medium hover:underline">
+              Register
+            </Link>
+          </div>
+          <div className="mt-2 text-center text-sm text-gray-400">
+            <Link href="/login" className="hover:underline">
               Student login
             </Link>
           </div>

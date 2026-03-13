@@ -107,48 +107,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-20 px-6">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="font-serif text-3xl md:text-4xl text-primary text-center mb-14">
-            Features
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                title: "AI Research Chat",
-                desc: "Find labs and professors by describing your research interests in plain language.",
-              },
-              {
-                title: "Personalized Matches",
-                desc: "Results ranked by relevance to your specific interests and academic background.",
-              },
-              {
-                title: "Video Introductions",
-                desc: "Record a quick video introduction to stand out when expressing interest in a lab.",
-              },
-              {
-                title: "Track Applications",
-                desc: "Monitor your submissions and see when professors shortlist your application.",
-              },
-            ].map((feature, i) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="border border-gray-100 rounded-2xl p-6 hover:shadow-md transition-shadow"
-              >
-                <h3 className="font-semibold text-lg text-primary mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-500 leading-relaxed">{feature.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+
     </div>
   );
 }

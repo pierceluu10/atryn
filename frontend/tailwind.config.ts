@@ -28,7 +28,7 @@ const config: Config = {
       },
       fontFamily: {
         serif: ['"DM Serif Display"', "serif"],
-        sans: ["Inter", "system-ui", "sans-serif"],
+        sans: ['"Amazon Ember"', "system-ui", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
