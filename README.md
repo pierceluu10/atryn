@@ -1,6 +1,8 @@
-# Atryn
+# ATRYN
 
-**Atryn** is an AI-powered research discovery platform for the University of Toronto. It helps students find research labs, connect with professors, and submit video introductions — all through a conversational interface powered by Claude on AWS Bedrock.
+*All the Research You Need*
+
+**ATRYN** is an AI-powered research discovery platform for the University of Toronto. Students can chat with an AI assistant to find research labs, connect with professors, and submit video introductions.
 
 ## Architecture
 
@@ -94,10 +96,3 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-### Quick test
-
-1. Register as a student
-2. Go to **Chat** and ask *"find machine learning labs"*
-3. Click a lab card to view details
-4. Record a video introduction and submit
-5. Register as a professor to review submissions
