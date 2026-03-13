@@ -1,0 +1,86 @@
+{
+  "endpoints": {
+    "POST /chat": {
+      "description": "Send a chat message and get a response with optional resource cards",
+      "request": {
+        "message": "I'm interested in machine learning and robotics research",
+        "conversationHistory": [
+          { "role": "user", "content": "previous message" },
+          { "role": "assistant", "content": "previous response" }
+        ]
+      },
+      "response": {
+        "reply": "Great interests! I found several resources related to machine learning and robotics...",
+        "cards": [
+          {
+            "id": "lab-ml-01",
+            "name": "Machine Intelligence Lab",
+            "category": "lab",
+            "shortDescription": "Research lab focused on deep learning, NLP, and computer vision.",
+            "topics": ["machine learning", "deep learning", "NLP"],
+            "tags": ["ML", "AI"],
+            "department": "Computer Science"
+          }
+        ]
+      }
+    },
+    "POST /search": {
+      "description": "Search for resources by query and optional category filter",
+      "request": {
+        "query": "robotics labs",
+        "category": "lab",
+        "limit": 5
+      },
+      "response": {
+        "results": [
+          {
+            "id": "lab-robotics-02",
+            "name": "Autonomous Robotics Laboratory",
+            "category": "lab",
+            "shortDescription": "Building intelligent robots..."
+          }
+        ],
+        "summary": "Found 2 labs related to robotics..."
+      }
+    },
+    "GET /resource/{id}": {
+      "description": "Get full details for a specific resource",
+      "response": {
+        "id": "lab-ml-01",
+        "name": "Machine Intelligence Lab",
+        "category": "lab",
+        "shortDescription": "...",
+        "fullDescription": "...",
+        "topics": [],
+        "tags": [],
+        "building": "Engineering Building",
+        "officeLocation": "Room 412",
+        "contactEmail": "ml-lab@university.edu",
+        "website": "https://university.edu/ml-lab",
+        "professorName": "Dr. Sarah Chen",
+        "department": "Computer Science"
+      }
+    },
+    "POST /resource/{id}/ask": {
+      "description": "Ask a follow-up question about a specific resource",
+      "request": {
+        "question": "Is this lab open to undergraduates?",
+        "resourceId": "lab-ml-01"
+      },
+      "response": {
+        "answer": "Based on the available information, the Machine Intelligence Lab accepts undergraduate research assistants with strong ML coursework..."
+      }
+    },
+    "POST /resource/{id}/draft-email": {
+      "description": "Generate a draft outreach email for a resource",
+      "request": {
+        "resourceId": "prof-chen-01",
+        "studentContext": "I just finished an ML course and want to do research"
+      },
+      "response": {
+        "subject": "Interest in Machine Intelligence Lab Research",
+        "body": "Dear Dr. Chen,\n\nMy name is [Student Name]..."
+      }
+    }
+  }
+}
