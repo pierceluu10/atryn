@@ -1,4 +1,9 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { FlaskConical, MessageSquare, Video, ArrowRight } from "lucide-react";
 
 export default function LandingPage() {
   return (
@@ -6,56 +11,56 @@ export default function LandingPage() {
       {/* Nav */}
       <nav className="w-full px-6 md:px-12 py-5 flex items-center justify-between">
         <span className="font-serif text-2xl text-primary tracking-tight">
-          ATRYN
+          Atryn
         </span>
-        <div className="hidden md:flex items-center gap-8 text-sm text-gray-600">
-          <a href="#features" className="hover:text-primary transition-colors">
-            Features
-          </a>
-          <a href="#how" className="hover:text-primary transition-colors">
-            How It Works
-          </a>
-          <a href="#about" className="hover:text-primary transition-colors">
-            About
-          </a>
+        <div className="flex items-center gap-3">
+          <Link href="/login">
+            <Button variant="ghost" size="sm">Sign In</Button>
+          </Link>
+          <Link href="/register">
+            <Button size="sm">Get Started</Button>
+          </Link>
         </div>
-        <Link
-          href="/chat"
-          className="bg-primary text-white text-sm font-medium px-5 py-2.5 rounded-full hover:bg-primary-light transition-colors"
-        >
-          Get Started
-        </Link>
       </nav>
 
       {/* Hero */}
       <section className="flex-1 flex flex-col items-center justify-center px-6 text-center max-w-4xl mx-auto py-20 md:py-32">
-        <h1 className="font-serif text-5xl md:text-7xl text-primary leading-tight">
-          Discover everything{" "}
-          <span className="dm-serif-display-regular-italic">your campus</span>{" "}
-          has to offer.
-        </h1>
-        <p className="mt-6 text-lg md:text-xl text-gray-500 max-w-2xl leading-relaxed">
-          An intelligent assistant that connects you with labs, professors,
-          services, and opportunities — all tailored to your interests.
-        </p>
-        <div className="mt-10 flex flex-col sm:flex-row gap-4">
-          <Link
-            href="/chat"
-            className="bg-primary text-white font-medium px-8 py-3.5 rounded-full text-lg hover:bg-primary-light transition-colors"
-          >
-            Start Chatting
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="font-serif text-5xl md:text-7xl text-primary leading-tight"
+        >
+          Discover research{" "}
+          <span className="dm-serif-display-regular-italic">that matters</span>{" "}
+          to you.
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mt-6 text-lg md:text-xl text-gray-500 max-w-2xl leading-relaxed"
+        >
+          An intelligent assistant that connects you with labs and professors at
+          U of T - all tailored to your research interests.
+        </motion.p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-10"
+        >
+          <Link href="/register">
+            <Button size="lg" className="rounded-full text-lg px-8 py-6 gap-2">
+              Start Exploring
+              <ArrowRight className="w-5 h-5" />
+            </Button>
           </Link>
-          <a
-            href="#how"
-            className="border-2 border-primary text-primary font-medium px-8 py-3.5 rounded-full text-lg hover:bg-primary hover:text-white transition-colors"
-          >
-            Learn More
-          </a>
-        </div>
+        </motion.div>
       </section>
 
       {/* How it works */}
-      <section id="how" className="bg-accent py-20 px-6">
+      <section className="bg-accent py-20 px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="font-serif text-3xl md:text-4xl text-primary text-center mb-14">
             How It Works
@@ -64,36 +69,46 @@ export default function LandingPage() {
             {[
               {
                 step: "01",
+                icon: <MessageSquare className="w-6 h-6" />,
                 title: "Tell us your interests",
-                desc: "Share what you're curious about — research areas, career goals, or support needs.",
+                desc: "Share what you are curious about - research areas, topics, or specific professors.",
               },
               {
                 step: "02",
+                icon: <FlaskConical className="w-6 h-6" />,
                 title: "Get personalized matches",
-                desc: "Our AI searches curated campus resources and returns the most relevant results.",
+                desc: "Our AI searches research labs and returns the most relevant results for you.",
               },
               {
                 step: "03",
-                title: "Explore and connect",
-                desc: "View details, ask follow-up questions, and draft outreach emails — all in chat.",
+                icon: <Video className="w-6 h-6" />,
+                title: "Record and connect",
+                desc: "Submit a quick video introduction to labs you are interested in joining.",
               },
-            ].map((item) => (
-              <div key={item.step} className="text-center md:text-left">
-                <div className="text-primary font-serif text-5xl opacity-20 mb-2">
-                  {item.step}
+            ].map((item, i) => (
+              <motion.div
+                key={item.step}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                className="text-center md:text-left"
+              >
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4 mx-auto md:mx-0">
+                  {item.icon}
                 </div>
                 <h3 className="font-semibold text-lg text-primary mb-2">
                   {item.title}
                 </h3>
                 <p className="text-gray-500 leading-relaxed">{item.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Features */}
-      <section id="features" className="py-20 px-6">
+      <section className="py-20 px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="font-serif text-3xl md:text-4xl text-primary text-center mb-14">
             Features
@@ -101,55 +116,39 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-2 gap-8">
             {[
               {
-                title: "Smart Search",
-                desc: "Find labs, professors, and services by describing what you need in plain language.",
+                title: "AI Research Chat",
+                desc: "Find labs and professors by describing your research interests in plain language.",
               },
               {
-                title: "Personalized Recommendations",
-                desc: "Results ranked by relevance to your specific interests and goals.",
+                title: "Personalized Matches",
+                desc: "Results ranked by relevance to your specific interests and academic background.",
               },
               {
-                title: "AI-Powered Q&A",
-                desc: "Ask detailed questions about any resource and get grounded, helpful answers.",
+                title: "Video Introductions",
+                desc: "Record a quick video introduction to stand out when expressing interest in a lab.",
               },
               {
-                title: "Email Drafting",
-                desc: "Generate polished outreach emails to professors and labs in seconds.",
+                title: "Track Applications",
+                desc: "Monitor your submissions and see when professors shortlist your application.",
               },
-            ].map((feature) => (
-              <div
+            ].map((feature, i) => (
+              <motion.div
                 key={feature.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.05 }}
                 className="border border-gray-100 rounded-2xl p-6 hover:shadow-md transition-shadow"
               >
                 <h3 className="font-semibold text-lg text-primary mb-2">
                   {feature.title}
                 </h3>
                 <p className="text-gray-500 leading-relaxed">{feature.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
-
-      {/* About */}
-      <section id="about" className="bg-primary text-white py-20 px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-serif text-3xl md:text-4xl mb-6">
-            Built for students, by students.
-          </h2>
-          <p className="text-lg text-white/70 leading-relaxed">
-            ATRYN was built during a hackathon to solve a real problem:
-            navigating the overwhelming number of resources at a university.
-            Powered by AWS and AI, it makes discovery effortless.
-          </p>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-8 px-6 text-center text-sm text-gray-400">
-        &copy; {new Date().getFullYear()} ATRYN &middot; Built with
-        Next.js, Tailwind CSS, and AWS
-      </footer>
     </div>
   );
 }

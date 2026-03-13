@@ -1,76 +1,69 @@
-export type ResourceCategory =
-  | "campus_service"
-  | "lab"
-  | "professor"
-  | "opportunity"
-  | "student_group";
-
-export interface Resource {
-  id: string;
-  name: string;
-  category: ResourceCategory;
-  shortDescription: string;
-  fullDescription: string;
-  topics: string[];
-  tags: string[];
-  building?: string;
-  officeLocation?: string;
-  contactEmail?: string;
-  website?: string;
-  professorName?: string;
-  department?: string;
-  audience?: string;
-  sourceType: string;
-  sourceNote: string;
-  lastReviewedAt: string;
-  aiContextNotes: string;
+// --- Auth ---
+export interface AuthResponse {
+  token: string;
+  user: StudentUser | ProfessorUser;
 }
 
+export interface StudentUser {
+  id: number;
+  role: "student";
+  name: string;
+  email: string;
+  program: string;
+  year: number;
+  interests: string;
+}
+
+export interface ProfessorUser {
+  id: number;
+  role: "professor";
+  name: string;
+  email: string;
+  department: string;
+  labName: string;
+}
+
+export type AppUser = StudentUser | ProfessorUser;
+
+// --- Lab ---
+export interface Lab {
+  id: number;
+  labName: string;
+  professorId: number;
+  professorName?: string;
+  professorEmail?: string;
+  topics: string;
+  description: string;
+  department?: string;
+}
+
+// --- Submission ---
+export interface Submission {
+  id: number;
+  studentId: number;
+  labId: number;
+  videoUrl: string;
+  status: "pending" | "shortlisted" | "rejected";
+  createdAt: string;
+  // Joined fields
+  studentName?: string;
+  studentEmail?: string;
+  studentProgram?: string;
+  studentYear?: number;
+  studentInterests?: string;
+  labName?: string;
+}
+
+// --- Chat ---
 export interface ChatMessage {
   id: string;
   role: "user" | "assistant";
   content: string;
-  cards?: Resource[];
+  labs?: Lab[];
   timestamp: number;
-}
-
-export interface ChatRequest {
-  message: string;
-  conversationHistory: { role: string; content: string }[];
-  selectedResourceId?: string;
 }
 
 export interface ChatResponse {
   reply: string;
-  cards?: Resource[];
-}
-
-export interface SearchRequest {
-  query: string;
-  category?: ResourceCategory;
-  limit?: number;
-}
-
-export interface SearchResponse {
-  results: Resource[];
-  summary: string;
-}
-
-export interface AskRequest {
-  question: string;
-  resourceId: string;
-}
-
-export interface AskResponse {
-  answer: string;
-}
-
-export interface EmailDraftRequest {
-  resourceId: string;
-  studentContext?: string;
-}
-
-export interface EmailDraftResponse {
-  subject: string;
-  body: string;
+  labs?: Lab[];
 }

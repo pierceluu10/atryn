@@ -1,0 +1,112 @@
+import { NextRequest, NextResponse } from "next/server";
+import { getDb } from "@/lib/db";
+
+const MOCK_MODE = process.env.MOCK_AI === "true";
+
+export async function POST(req: NextRequest) {
+  try {
+    const { message, conversationHistory } = await req.json();
+
+    if (!message) {
+      return NextResponse.json({ error: "Message required" }, { status: 400 });
+    }
+
+    // Get labs from database for context
+    const db = getDb();
+    const labs = db.prepare(`
+      SELECT l.*, p.name as professorName, p.email as professorEmail
+      FROM labs l
+      LEFT JOIN professors p ON l.professorId = p.id
+    `).all();
+
+    // Search labs by keyword matching
+    const tokens = message.toLowerCase().split(/\s+/).filter(Boolean);
+    const matchedLabs = labs.filter((lab: Record<string, unknown>) => {
+      const searchable = [
+        lab.labName as string,
+        lab.topics as string,
+        lab.description as string,
+        lab.department as string,
+        lab.professorName as string || "",
+      ].join(" ").toLowerCase();
+      return tokens.some((t: string) => searchable.includes(t));
+    }).slice(0, 4);
+
+    if (MOCK_MODE) {
+      const reply = matchedLabs.length > 0
+        ? `I found ${matchedLabs.length} research labs that match your interests. Take a look at the results below - click any lab to learn more and submit your introduction!`
+        : `I can help you discover research labs, professors, and topics at U of T. Try asking about specific areas like "machine learning", "robotics", "cybersecurity", or "biomedical AI".`;
+
+      return NextResponse.json({
+        reply,
+        labs: matchedLabs.length > 0 ? matchedLabs : undefined,
+      });
+    }
+
+    // Call Gemini API
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey) {
+      return NextResponse.json({ error: "Gemini API key not configured" }, { status: 500 });
+    }
+
+    const model = process.env.GEMINI_MODEL || "gemini-2.0-flash";
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+
+    const labContext = labs.map((l: Record<string, unknown>) =>
+      `- ${l.labName} (${l.department}): ${l.description} Topics: ${l.topics}. Professor: ${l.professorName}`
+    ).join("\n");
+
+    const systemPrompt = `You are Atryn, a research discovery assistant for students at the University of Toronto. You help students find research labs, professors, and research topics.
+
+IMPORTANT RULES:
+- Only discuss research labs, professors, and research topics
+- Do NOT recommend campus services, mental health services, career offices, or non-research resources
+- Be concise and helpful
+- Never use em-dashes. Use regular hyphens instead
+- Refer to yourself as "Atryn" (not "ATRYN")
+
+Available research labs at U of T:
+${labContext}
+
+Based on the student's query, suggest relevant labs and explain why they might be a good fit. If no labs match, suggest the student try different research keywords.`;
+
+    const contents = [
+      ...(conversationHistory || []).map((m: { role: string; content: string }) => ({
+        role: m.role === "assistant" ? "model" : "user",
+        parts: [{ text: m.content }],
+      })),
+      { role: "user", parts: [{ text: message }] },
+    ];
+
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        system_instruction: { parts: [{ text: systemPrompt }] },
+        contents,
+        generationConfig: { maxOutputTokens: 1024, temperature: 0.7 },
+      }),
+    });
+
+    if (!response.ok) {
+      const errText = await response.text();
+      console.error("Gemini API error:", errText);
+      return NextResponse.json({
+        reply: "I found some relevant labs for you below! Click on any lab to learn more.",
+        labs: matchedLabs.length > 0 ? matchedLabs : undefined,
+      });
+    }
+
+    const data = await response.json();
+    const reply = data.candidates?.[0]?.content?.parts?.[0]?.text ||
+      "I can help you discover research labs at U of T. Try asking about specific research areas!";
+
+    return NextResponse.json({
+      reply,
+      labs: matchedLabs.length > 0 ? matchedLabs : undefined,
+    });
+  } catch (error: unknown) {
+    console.error("Chat error:", error);
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
+  }
+}

@@ -2,25 +2,26 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { ChatMessage as ChatMessageType, Resource } from "@/types";
-import ChatMessage from "@/components/ChatMessage";
-import ResourceDetail from "@/components/ResourceDetail";
-import SuggestionChips from "@/components/SuggestionChips";
-import { sendChat } from "@/lib/api";
+import { useAuth } from "@/lib/auth-context";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { motion, AnimatePresence } from "framer-motion";
+import { Send, RotateCcw, FlaskConical } from "lucide-react";
+import type { ChatMessage, Lab } from "@/types";
 
-const WELCOME_MESSAGE: ChatMessageType = {
+const WELCOME_MESSAGE: ChatMessage = {
   id: "welcome",
   role: "assistant",
   content:
-    "Welcome to ATRYN! I can help you discover labs, professors, services, and opportunities on campus. Tell me about your interests, or try one of the suggestions below.",
+    "Hi! I am Atryn, your research discovery assistant at U of T. I can help you find labs, professors, and research topics. Tell me about your interests or try asking something like \"find machine learning labs\".",
   timestamp: Date.now(),
 };
 
 export default function ChatPage() {
-  const [messages, setMessages] = useState<ChatMessageType[]>([WELCOME_MESSAGE]);
+  const { token } = useAuth();
+  const [messages, setMessages] = useState<ChatMessage[]>([WELCOME_MESSAGE]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [selectedResource, setSelectedResource] = useState<Resource | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -32,7 +33,7 @@ export default function ChatPage() {
     const messageText = text || input.trim();
     if (!messageText || loading) return;
 
-    const userMsg: ChatMessageType = {
+    const userMsg: ChatMessage = {
       id: `user-${Date.now()}`,
       role: "user",
       content: messageText,
@@ -48,23 +49,31 @@ export default function ChatPage() {
         .filter((m) => m.id !== "welcome")
         .map((m) => ({ role: m.role, content: m.content }));
 
-      const response = await sendChat(messageText, history);
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
+        body: JSON.stringify({ message: messageText, conversationHistory: history }),
+      });
 
-      const assistantMsg: ChatMessageType = {
+      const data = await res.json();
+
+      const assistantMsg: ChatMessage = {
         id: `asst-${Date.now()}`,
         role: "assistant",
-        content: response.reply,
-        cards: response.cards,
+        content: data.reply,
+        labs: data.labs,
         timestamp: Date.now(),
       };
 
       setMessages((prev) => [...prev, assistantMsg]);
     } catch {
-      const errorMsg: ChatMessageType = {
+      const errorMsg: ChatMessage = {
         id: `err-${Date.now()}`,
         role: "assistant",
-        content:
-          "I'm sorry, something went wrong. Please try again.",
+        content: "Sorry, something went wrong. Please try again.",
         timestamp: Date.now(),
       };
       setMessages((prev) => [...prev, errorMsg]);
@@ -74,63 +83,71 @@ export default function ChatPage() {
     inputRef.current?.focus();
   }
 
-  function handleAddMessage(msg: string) {
-    const assistantMsg: ChatMessageType = {
-      id: `asst-${Date.now()}`,
-      role: "assistant",
-      content: msg,
-      timestamp: Date.now(),
-    };
-    setMessages((prev) => [...prev, assistantMsg]);
-  }
+  const suggestions = [
+    "Find machine learning labs",
+    "Which labs accept undergrads?",
+    "Robotics research at U of T",
+    "Cybersecurity professors",
+  ];
 
   const showSuggestions = messages.length <= 1;
 
   return (
-    <div className="h-screen flex flex-col bg-white">
-      {/* Header */}
-      <header className="flex-shrink-0 border-b border-gray-100 px-4 md:px-6 py-3 flex items-center justify-between bg-white">
-        <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-            <svg
-              className="w-4 h-4 text-white"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-              />
-            </svg>
-          </div>
-          <span className="font-serif text-lg text-primary">ATRYN</span>
-        </Link>
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => {
-              setMessages([WELCOME_MESSAGE]);
-              setSelectedResource(null);
-            }}
-            className="text-xs text-gray-400 hover:text-primary transition-colors border border-gray-200 rounded-lg px-3 py-1.5"
-          >
-            New Chat
-          </button>
-        </div>
-      </header>
-
+    <div className="h-[calc(100vh-57px)] flex flex-col bg-white">
       {/* Chat area */}
       <div className="flex-1 overflow-y-auto chat-scroll px-4 md:px-6 py-6">
         <div className="max-w-2xl mx-auto">
-          {messages.map((msg) => (
-            <ChatMessage
-              key={msg.id}
-              message={msg}
-              onCardClick={setSelectedResource}
-            />
-          ))}
+          <AnimatePresence>
+            {messages.map((msg) => (
+              <motion.div
+                key={msg.id}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.2 }}
+                className={`mb-4 flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+              >
+                <div
+                  className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${
+                    msg.role === "user"
+                      ? "bg-primary text-white rounded-tr-sm"
+                      : "bg-gray-50 border border-gray-100 text-gray-700 rounded-tl-sm"
+                  }`}
+                >
+                  <p className="whitespace-pre-wrap">{msg.content}</p>
+
+                  {/* Lab cards */}
+                  {msg.labs && msg.labs.length > 0 && (
+                    <div className="mt-3 space-y-2">
+                      {msg.labs.map((lab: Lab) => (
+                        <Link
+                          key={lab.id}
+                          href={`/labs/${lab.id}`}
+                          className="block bg-white border border-gray-200 rounded-xl p-3 hover:shadow-sm transition-shadow"
+                        >
+                          <div className="flex items-start gap-2">
+                            <FlaskConical className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                            <div>
+                              <p className="font-medium text-primary text-sm">
+                                {lab.labName}
+                              </p>
+                              {lab.professorName && (
+                                <p className="text-xs text-gray-400 mt-0.5">
+                                  {lab.professorName} - {lab.department}
+                                </p>
+                              )}
+                              <p className="text-xs text-gray-500 mt-1 line-clamp-2">
+                                {lab.description?.slice(0, 120)}...
+                              </p>
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
 
           {loading && (
             <div className="flex justify-start mb-4">
@@ -147,7 +164,17 @@ export default function ChatPage() {
           {showSuggestions && (
             <div className="mt-4">
               <p className="text-xs text-gray-400 mb-2">Try asking:</p>
-              <SuggestionChips onSelect={handleSend} />
+              <div className="flex flex-wrap gap-2">
+                {suggestions.map((s) => (
+                  <button
+                    key={s}
+                    onClick={() => handleSend(s)}
+                    className="text-xs bg-accent text-primary px-3 py-1.5 rounded-full hover:bg-primary hover:text-white transition-colors"
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
             </div>
           )}
 
@@ -159,50 +186,38 @@ export default function ChatPage() {
       <div className="flex-shrink-0 border-t border-gray-100 bg-white px-4 md:px-6 py-4">
         <div className="max-w-2xl mx-auto">
           <div className="flex items-center gap-3">
-            <input
+            <button
+              onClick={() => {
+                setMessages([WELCOME_MESSAGE]);
+              }}
+              className="text-gray-300 hover:text-primary transition-colors p-2"
+              title="New chat"
+            >
+              <RotateCcw className="w-4 h-4" />
+            </button>
+            <Input
               ref={inputRef}
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend()}
-              placeholder="Ask about labs, professors, services, or opportunities..."
-              className="flex-1 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all"
+              placeholder="Ask about research labs, professors, or topics..."
               disabled={loading}
+              className="flex-1"
             />
-            <button
+            <Button
               onClick={() => handleSend()}
               disabled={loading || !input.trim()}
-              className="bg-primary text-white p-3 rounded-xl hover:bg-primary-light disabled:opacity-50 transition-colors"
+              size="icon"
             >
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                />
-              </svg>
-            </button>
+              <Send className="w-4 h-4" />
+            </Button>
           </div>
           <p className="text-[10px] text-gray-300 text-center mt-2">
-            ATRYN uses curated data. Results are for discovery — always verify details directly.
+            Atryn is focused on research discovery. Results are for exploration - always verify details directly.
           </p>
         </div>
       </div>
-
-      {/* Resource detail panel */}
-      {selectedResource && (
-        <ResourceDetail
-          resource={selectedResource}
-          onClose={() => setSelectedResource(null)}
-          onAddMessage={handleAddMessage}
-        />
-      )}
     </div>
   );
 }

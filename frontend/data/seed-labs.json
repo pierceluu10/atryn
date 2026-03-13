@@ -1,0 +1,42 @@
+[
+  {
+    "labName": "Machine Intelligence Lab",
+    "professorName": "Dr. Sarah Chen",
+    "professorEmail": "s.chen@utoronto.ca",
+    "department": "Computer Science",
+    "topics": "machine learning, deep learning, NLP, computer vision, AI",
+    "description": "The Machine Intelligence Lab conducts cutting-edge research in deep learning architectures, natural language processing, and computer vision. Current projects include large language model fine-tuning, medical image analysis, and multimodal learning. The lab publishes at top venues including NeurIPS, ICML, and CVPR. Accepts undergrad RAs with strong ML coursework. Weekly reading group open to all students."
+  },
+  {
+    "labName": "Autonomous Robotics Laboratory",
+    "professorName": "Dr. James Park",
+    "professorEmail": "j.park@utoronto.ca",
+    "department": "Mechanical Engineering / Computer Science",
+    "topics": "robotics, autonomous systems, reinforcement learning, SLAM, human-robot interaction",
+    "description": "The Autonomous Robotics Laboratory develops robots capable of autonomous navigation, dexterous manipulation, and natural human-robot interaction. Research areas include reinforcement learning for robot control, SLAM, and collaborative robotics in manufacturing and healthcare settings. Has several robot platforms including mobile robots and a 7-DOF arm. Undergrad positions available each semester."
+  },
+  {
+    "labName": "Human-Computer Interaction Lab",
+    "professorName": "Dr. Aisha Patel",
+    "professorEmail": "a.patel@utoronto.ca",
+    "department": "Computer Science / Design",
+    "topics": "HCI, user experience, accessibility, AR/VR, interaction design",
+    "description": "The HCI Lab explores how people interact with computing systems, with active projects in accessible technology design, AR/VR interfaces, voice user interfaces, and design methods for inclusive software. Interdisciplinary lab welcoming students from CS, design, and psychology. Runs user studies regularly and needs participants and research assistants."
+  },
+  {
+    "labName": "Biomedical Computing Lab",
+    "professorName": "Dr. Michael Torres",
+    "professorEmail": "m.torres@utoronto.ca",
+    "department": "Biomedical Engineering",
+    "topics": "biomedical AI, health informatics, genomics, medical imaging, data mining",
+    "description": "The Biomedical Computing Lab applies machine learning, data mining, and statistical modeling to health data including genomics, medical imaging, and electronic health records. Current projects include cancer risk prediction, drug interaction modeling, and wearable health monitoring. Interdisciplinary - welcomes students from CS, biology, and BME."
+  },
+  {
+    "labName": "Cybersecurity Research Lab",
+    "professorName": "Dr. Elena Vasquez",
+    "professorEmail": "e.vasquez@utoronto.ca",
+    "department": "Computer Science",
+    "topics": "cybersecurity, cryptography, network security, privacy, secure systems",
+    "description": "The Cybersecurity Research Lab focuses on network intrusion detection, applied cryptography, secure software development, and privacy-preserving computation. The lab partners with government agencies and industry on real-world security challenges and hosts an annual campus CTF competition. Good entry point for undergrads interested in security."
+  }
+]
