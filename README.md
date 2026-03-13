@@ -34,7 +34,6 @@
 | **Frontend** | Next.js 16, Tailwind CSS, Framer Motion | Chat interface, lab browsing, video recording |
 | **Hosting** | AWS Amplify | Production deployment |
 | **Compute** | AWS Lambda | Serverless API handlers |
-| **Auth** | JWT with bcrypt | Student and professor login/registration |
 | **AI** | Amazon Bedrock (Claude Opus 4.6) | Conversational research discovery via Converse API |
 | **Storage** | Amazon S3 (`atryn-videos` bucket) | Video introduction uploads |
 | **Database** | Amazon DynamoDB | Labs, users, submissions |
@@ -45,13 +44,11 @@
 |------------|-------|
 | **Next.js 16** | App Router, TypeScript, API routes |
 | **Tailwind CSS** | Styling with `#1E3765` primary color |
-| **DM Serif Display** | Display typeface |
 | **Framer Motion** | Page transitions and animations |
 | **shadcn/ui** | UI component library (Radix + CVA) |
 | **Amazon Bedrock** | Claude Opus 4.6 via Converse API |
 | **Amazon S3** | Video file storage with public read |
 | **Amazon DynamoDB** | Managed NoSQL database |
-| **JWT + bcrypt** | Authentication |
 | **Lucide React** | Icons |
 
 ## Getting Started
