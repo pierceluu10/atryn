@@ -1,0 +1,1027 @@
+[
+  {
+    "id": "neural_engineering",
+    "name": "Neural Engineering Research Group",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Biomedical Engineering",
+    "subarea": "Neural Engineering",
+    "description": "Research on brain bioengineering, neural system modeling, brain-machine interfaces, and computational neuroscience.",
+    "keywords": [
+      "brain-machine interface",
+      "neural engineering",
+      "computational neuroscience",
+      "biological signal processing",
+      "epileptic seizure prediction",
+      "neural modeling",
+      "artificial neural networks",
+      "brain bioengineering"
+    ],
+    "researchers": [
+      "Bardakjian B L",
+      "Genov R",
+      "Wong W",
+      "Yoo P",
+      "Zariffa J",
+      "Liu X"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "rehabilitation_engineering",
+    "name": "Rehabilitation Engineering Research Group",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Biomedical Engineering",
+    "subarea": "Rehabilitation Engineering",
+    "description": "Research on neuroprostheses, functional electrical stimulation, brain-machine interfaces, and mobility-enhancing devices.",
+    "keywords": [
+      "neuroprostheses",
+      "functional electrical stimulation",
+      "brain-machine interface",
+      "mobility devices",
+      "gait analysis",
+      "movement analysis",
+      "reaching and grasping",
+      "rehabilitation"
+    ],
+    "researchers": [
+      "Zariffa J",
+      "Liu X"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "medical_imaging_and_devices",
+    "name": "Medical Imaging & Devices Lab",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Biomedical Engineering",
+    "subarea": "Medical Imaging & Devices",
+    "description": "Research on MRI, ultrasound, optical biosensors, cellular imaging, and inverse problems in medical imaging.",
+    "keywords": [
+      "MRI",
+      "ultrasound",
+      "optical biosensors",
+      "cellular imaging",
+      "semiconductor devices",
+      "nano-structures",
+      "inverse problems",
+      "partial differential equations",
+      "medical imaging"
+    ],
+    "researchers": [
+      "Levi O",
+      "Nachman A",
+      "Truong K",
+      "Cobbold R S C"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "sensory_systems",
+    "name": "Sensory Systems Research Group",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Biomedical Engineering",
+    "subarea": "Sensory Systems",
+    "description": "Research on eye tracking, biomedical acoustics, motor and cognitive function assessment, and hearing-assistive technologies.",
+    "keywords": [
+      "eye tracking",
+      "biomedical acoustics",
+      "cognitive function",
+      "human communication",
+      "speech enhancement",
+      "hearing-assistive technologies",
+      "motor function assessment"
+    ],
+    "researchers": [
+      "Wong W",
+      "Liu X"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "bioinformatics",
+    "name": "Bioinformatics Research Group",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Biomedical Engineering",
+    "subarea": "Bioinformatics",
+    "description": "Research on machine learning algorithms to infer genetic regulatory code and protein design.",
+    "keywords": [
+      "machine learning",
+      "genetic regulatory code",
+      "protein design",
+      "bioinformatics",
+      "computational biology",
+      "genome biology"
+    ],
+    "researchers": [
+      "Frey B",
+      "Truong K"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "information_and_communication_theory",
+    "name": "Information and Communication Theory Research Group",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Communications",
+    "subarea": "Information and Communication Theory",
+    "description": "Research on coding theory, network coding, delay-sensitive communications, optimization, and circuit design based on communications theory.",
+    "keywords": [
+      "coding theory",
+      "network coding",
+      "delay-sensitive communications",
+      "optimization",
+      "fibre optics",
+      "information theory",
+      "circuit design"
+    ],
+    "researchers": [
+      "Draper S",
+      "Khisti A",
+      "Kschischang F",
+      "Yu W"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "wireless_communications",
+    "name": "Wireless Communications Research Group",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Communications",
+    "subarea": "Wireless Communications",
+    "description": "Research on heterogeneous networks, relay and vehicular networks, energy harvesting, sensor networks, and dynamic spectrum management.",
+    "keywords": [
+      "heterogeneous networks",
+      "relay networks",
+      "vehicular networks",
+      "energy harvesting",
+      "sensor networks",
+      "spectrum access",
+      "dynamic spectrum management",
+      "autonomous infrastructure"
+    ],
+    "researchers": [
+      "Adve R",
+      "Hatzinakos D",
+      "Liang B",
+      "Sousa E",
+      "Valaee S",
+      "Yu W"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "networks",
+    "name": "Networks Research Group",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Communications",
+    "subarea": "Networks",
+    "description": "Research on network architectures, sustainable infrastructure, mobile networking, multimedia streaming, and protocol design.",
+    "keywords": [
+      "network architectures",
+      "sustainable infrastructure",
+      "mobile networking",
+      "multimedia streaming",
+      "network economics",
+      "vehicular networks",
+      "protocol design",
+      "SAVI"
+    ],
+    "researchers": [
+      "Kundur D",
+      "Leon-Garcia A",
+      "Liang B",
+      "Liebeherr J",
+      "Valaee S"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "signal_processing",
+    "name": "Signal Processing Research Group",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Communications",
+    "subarea": "Signal Processing",
+    "description": "Research on multimedia and image processing, watermarking, camera processing, social signal processing, and radar signal processing.",
+    "keywords": [
+      "multimedia",
+      "image processing",
+      "watermarking",
+      "DRM",
+      "camera processing",
+      "social signal processing",
+      "radar signal processing"
+    ],
+    "researchers": [
+      "Adve R",
+      "Hatzinakos D",
+      "Kundur D",
+      "Kwong R",
+      "Plataniotis K"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "bio_signal_processing",
+    "name": "Bio Signal Processing Research Group",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Communications",
+    "subarea": "Bio Signal Processing",
+    "description": "Research on body area networks, ECG/EEG signal processing, ultrasound, rehabilitation, motor imagery detection, and emotion analysis.",
+    "keywords": [
+      "body area networks",
+      "ECG",
+      "EEG",
+      "ultrasound",
+      "rehabilitation",
+      "motor imagery detection",
+      "biomarker",
+      "neural feedback",
+      "emotion analysis",
+      "cognition"
+    ],
+    "researchers": [
+      "Adve R",
+      "Hatzinakos D",
+      "Plataniotis K"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "communications_security",
+    "name": "Communications Security Research Group",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Communications",
+    "subarea": "Security",
+    "description": "Research on biometrics, surveillance, multimedia security, smart grid infrastructure security, and information theoretic security.",
+    "keywords": [
+      "IPSI",
+      "biometrics",
+      "surveillance",
+      "multimedia security",
+      "smart grid security",
+      "information theoretic security",
+      "infrastructure security"
+    ],
+    "researchers": [
+      "Draper S",
+      "Hatzinakos D",
+      "Khisti A",
+      "Kundur D",
+      "Plataniotis K"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "compilers",
+    "name": "Compilers Research Group",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Computer Engineering",
+    "subarea": "Compilers",
+    "description": "Research on GPU compilation, parallelizing compilers, retargetable compilation, and behavioural synthesis.",
+    "keywords": [
+      "GPU compilers",
+      "parallelizing compilers",
+      "retargetable compilation",
+      "behavioural synthesis",
+      "compiler optimization"
+    ],
+    "researchers": [
+      "Abdelrahman T S",
+      "Zhu J",
+      "Brown S D",
+      "Anderson J H"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "computer_aided_design",
+    "name": "Computer-Aided Design (CAD) Lab",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Computer Engineering",
+    "subarea": "Computer-Aided Design (CAD)",
+    "description": "Research on CAD for FPGAs, low power and reliable circuits, formal methods, silicon debug, and synthesis.",
+    "keywords": [
+      "CAD",
+      "FPGA",
+      "low power circuits",
+      "reliable circuits",
+      "formal methods",
+      "silicon debug",
+      "synthesis",
+      "design automation"
+    ],
+    "researchers": [
+      "Anderson J H",
+      "Betz V",
+      "Brown S D",
+      "Rose J S",
+      "Najm F N",
+      "Veneris A",
+      "Zhu J"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "computer_architecture_and_hardware",
+    "name": "Computer Architecture and Hardware Research Group",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Computer Engineering",
+    "subarea": "Computer Architecture and Hardware",
+    "description": "Research on microarchitecture, interconnection networks, parallel architecture, FPGA-based computing, and architectural support for security.",
+    "keywords": [
+      "microarchitecture",
+      "interconnection networks",
+      "parallel architecture",
+      "FPGA computing",
+      "architectural security",
+      "VLSI",
+      "signal processing"
+    ],
+    "researchers": [
+      "Moshovos A",
+      "Enright Jerger N",
+      "Jeffrey M",
+      "Abdelrahman T S",
+      "Brown S D",
+      "Chow P",
+      "Rose J S",
+      "Lie D",
+      "Gulak P G"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "fpgas",
+    "name": "Field-Programmable Gate Arrays (FPGAs) Lab",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Computer Engineering",
+    "subarea": "Field-Programmable Gate Arrays (FPGAs)",
+    "description": "Research on FPGA CAD tools, FPGA architecture, and FPGA-based computing.",
+    "keywords": [
+      "FPGA",
+      "FPGA architecture",
+      "FPGA computing",
+      "reconfigurable computing",
+      "CAD for FPGA"
+    ],
+    "researchers": [
+      "Anderson J H",
+      "Betz V",
+      "Brown S D",
+      "Rose J S",
+      "Chow P"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "mobile_wearable_bio_inspired_computing",
+    "name": "Mobile, Wearable, and Bio-Inspired Computing Lab",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Computer Engineering",
+    "subarea": "Mobile, Wearable, and Bio-Inspired Computing",
+    "description": "Research on mobile applications and security, wearable computing, image and video processing, biomedical cybernetics, and multi-sensor information systems.",
+    "keywords": [
+      "mobile applications",
+      "mobile security",
+      "wearable computing",
+      "image processing",
+      "video processing",
+      "biomedical cybernetics",
+      "multi-sensor systems"
+    ],
+    "researchers": [
+      "Aarabi P",
+      "Rose J S",
+      "Lie D",
+      "Mann S",
+      "Wong W"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "system_software",
+    "name": "System Software Research Group",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Computer Engineering",
+    "subarea": "System Software",
+    "description": "Research on distributed systems, middleware, quality-of-service provisioning, operating systems, secure systems, and software engineering.",
+    "keywords": [
+      "distributed systems",
+      "middleware",
+      "quality-of-service",
+      "operating systems",
+      "secure systems",
+      "data management",
+      "software engineering",
+      "information systems"
+    ],
+    "researchers": [
+      "Jacobsen H A",
+      "Li B",
+      "Goel A",
+      "Lie D",
+      "Stumm M",
+      "Yuan D",
+      "Papernot N",
+      "Zhou S"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "electromagnetics_high_speed_circuits",
+    "name": "Electromagnetics of High-Speed Circuits Lab",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Electromagnetics",
+    "subarea": "Electromagnetics of High-Speed Circuits",
+    "description": "Research on signal integrity in high-speed digital systems and microwave integrated circuit design, modeling and characterization.",
+    "keywords": [
+      "signal integrity",
+      "high-speed digital systems",
+      "microwave integrated circuits",
+      "circuit modeling",
+      "circuit characterization"
+    ],
+    "researchers": [
+      "Eleftheriades G",
+      "Sarris C",
+      "Triverio P"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "antennas_telecom_wireless",
+    "name": "Antennas for Telecommunication and Wireless Systems Lab",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Electromagnetics",
+    "subarea": "Antennas for Telecommunication and Wireless Systems",
+    "description": "Research on integrated, active, and MEMS reconfigurable antennas, ultra-wideband arrays, electronically tunable reflectarrays, and terahertz antennas.",
+    "keywords": [
+      "antennas",
+      "MEMS reconfigurable antennas",
+      "controlled-beam antennas",
+      "ultra-wideband",
+      "reflectarrays",
+      "reconfigurable reflecting surfaces",
+      "terahertz antennas",
+      "adaptive antennas"
+    ],
+    "researchers": [
+      "Eleftheriades G",
+      "Hum S"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "metamaterials",
+    "name": "Metamaterials Research Group",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Electromagnetics",
+    "subarea": "Metamaterials",
+    "description": "Research on negative refraction media, transmission-line metamaterials, RF/microwave metamaterial components, super-resolution imaging, and plasmonic metamaterials.",
+    "keywords": [
+      "negative refraction",
+      "transmission-line metamaterials",
+      "NRI-TL",
+      "RF metamaterials",
+      "microwave metamaterials",
+      "super-resolution",
+      "plasmonic metamaterials",
+      "nanostructured metamaterials"
+    ],
+    "researchers": [
+      "Eleftheriades G",
+      "Mojahedi M",
+      "Sarris C"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "computational_electromagnetics",
+    "name": "Computational Electromagnetics Lab",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Electromagnetics",
+    "subarea": "Computational Electromagnetics",
+    "description": "Research on computer-aided solutions of integral and differential equations, finite-element methods, FDTD, and wireless channel modelling.",
+    "keywords": [
+      "method of moments",
+      "finite elements",
+      "boundary elements",
+      "FDTD",
+      "multiresolution time-domain",
+      "mesh adaptive techniques",
+      "wireless channel modelling",
+      "computational electromagnetics"
+    ],
+    "researchers": [
+      "Sarris C",
+      "Triverio P"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "electromagnetic_compatibility",
+    "name": "Electromagnetic Compatibility Lab",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Electromagnetics",
+    "subarea": "Electromagnetic Compatibility",
+    "description": "Research on compatibility of wireline and wireless communication systems, susceptibility of digital circuits, and electrostatic arc discharge testing.",
+    "keywords": [
+      "electromagnetic compatibility",
+      "EMC",
+      "wireline systems",
+      "wireless systems",
+      "digital circuit susceptibility",
+      "electrostatic discharge",
+      "stress testing"
+    ],
+    "researchers": [
+      "Sarris C",
+      "Triverio P"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "solid_state_devices",
+    "name": "Solid-State Devices Lab",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Electronics",
+    "subarea": "Solid-State Devices",
+    "description": "Research on nano-materials for energy and sensing, atomic-scale and 2D crystal transistors, and silicon and GaN power semiconductor devices.",
+    "keywords": [
+      "nano-materials",
+      "energy harvesting",
+      "sensing",
+      "2D crystal transistors",
+      "atomic-scale transistors",
+      "silicon power devices",
+      "GaN power semiconductors",
+      "solid-state devices"
+    ],
+    "researchers": [
+      "Sargent E H",
+      "Ng W T",
+      "Voinigescu S P"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "digital_design_and_systems",
+    "name": "Digital Design and Systems Lab",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Electronics",
+    "subarea": "Digital Design and Systems",
+    "description": "Research on FPGA architecture and applications, reconfigurable and embedded systems, VLSI memory design, spintronics, and application-specific processor design.",
+    "keywords": [
+      "FPGA architecture",
+      "reconfigurable computing",
+      "embedded systems",
+      "VLSI memory",
+      "spintronics",
+      "signal processing",
+      "processor design",
+      "mobile device sensors"
+    ],
+    "researchers": [
+      "Chow P",
+      "Gulak P G",
+      "Najm F N",
+      "Rose J S",
+      "Sheikholeslami A",
+      "Veneris A",
+      "Liu X"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "analog_design_and_systems",
+    "name": "Analog Design and Systems Lab",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Electronics",
+    "subarea": "Analog Design and Systems",
+    "description": "Research on data converters, power management, analog and mixed-signal processing, MEMS interface circuits, and CMOS imagers.",
+    "keywords": [
+      "data converters",
+      "power management",
+      "analog processing",
+      "mixed-signal processing",
+      "MEMS interface",
+      "CMOS imagers",
+      "analog design"
+    ],
+    "researchers": [
+      "Chan Carusone A",
+      "Genov R",
+      "Johns D A",
+      "Liscidini A",
+      "Ng W T",
+      "Sheikholeslami A",
+      "Voinigescu S P",
+      "Liu X"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "integrated_circuits_wireless_wireline",
+    "name": "Integrated Circuits for Wireless and Wireline Communications Lab",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Electronics",
+    "subarea": "Integrated Circuits for Wireless and Wireline Communications",
+    "description": "Research on mm-wave and THz circuits, optical receivers and transmitters, high-speed SerDes, DSP-based transceivers, and RF circuit design.",
+    "keywords": [
+      "mm-wave circuits",
+      "THz circuits",
+      "optical receivers",
+      "optical transmitters",
+      "high-speed SerDes",
+      "DSP transceivers",
+      "LNA",
+      "power amplifier",
+      "RF DAC",
+      "baseband signal processing"
+    ],
+    "researchers": [
+      "Chan Carusone A",
+      "Gulak P G",
+      "Liscidini A",
+      "Sheikholeslami A",
+      "Voinigescu S P",
+      "Liu X"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "biomedical_circuits_and_applications",
+    "name": "Biomedical Circuits and Applications Lab",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Electronics",
+    "subarea": "Biomedical Circuits and Applications",
+    "description": "Research on implantable and wearable biomedical electronics, brain-chip neural interfaces, CMOS biosensors, and wireless power and data transfer.",
+    "keywords": [
+      "implantable electronics",
+      "wearable electronics",
+      "brain-chip interface",
+      "neural interfaces",
+      "CMOS biosensors",
+      "wireless power transfer",
+      "wireless data transfer",
+      "biomedical circuits"
+    ],
+    "researchers": [
+      "Genov R",
+      "Gulak P G",
+      "Liu X"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "energy_systems",
+    "name": "Energy Systems Research Group",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Energy Systems",
+    "subarea": "Energy Systems",
+    "description": "Research on power systems control, electromagnetic transients, DC transmission, power quality, power electronics, renewable energy converters, and EMI.",
+    "keywords": [
+      "power systems",
+      "power electronics",
+      "electromagnetic transients",
+      "DC transmission",
+      "power quality",
+      "system optimization",
+      "renewable energy",
+      "power converters",
+      "automotive power",
+      "aerospace power",
+      "EMI",
+      "piezoelectric devices"
+    ],
+    "researchers": [],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "biophotonics",
+    "name": "Biophotonics Lab",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Photonics",
+    "subarea": "Biophotonics",
+    "description": "Research on bio-imaging and bio-sensing using photonic technologies.",
+    "keywords": [
+      "bio-imaging",
+      "bio-sensing",
+      "biophotonics",
+      "optical sensing",
+      "photonic biosensors"
+    ],
+    "researchers": [
+      "Levi O",
+      "Mojahedi M",
+      "Aitchison J S",
+      "Sargent E H",
+      "Herman P R"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "fibre_optics",
+    "name": "Fibre Optics Lab",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Photonics",
+    "subarea": "Fibre Optics",
+    "description": "Research on fibre-optic sensing, metrology, lab-on-a-fibre, optical communication networks, and quantum communication over fibre.",
+    "keywords": [
+      "fibre-optic sensing",
+      "fibre-optic metrology",
+      "lab-on-a-fibre",
+      "optical communication",
+      "quantum communication",
+      "optical fibre"
+    ],
+    "researchers": [
+      "Qian L",
+      "Pavel L",
+      "Lo H K",
+      "Herman P R",
+      "Aitchison J S"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "integrated_optics",
+    "name": "Integrated Optics Lab",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Photonics",
+    "subarea": "Integrated Optics",
+    "description": "Research on high-speed optical transmitters and receivers, electronic-photonic integration, nano-scale modulators, and quantum-dot lasers.",
+    "keywords": [
+      "optical transmitters",
+      "optical receivers",
+      "electronic-photonic integration",
+      "nano-scale optical modulators",
+      "photonic coatings",
+      "nanowire lasers",
+      "quantum-dot lasers",
+      "short-reach communications"
+    ],
+    "researchers": [
+      "Poon J",
+      "Kherani N",
+      "Helmy A",
+      "Levi O",
+      "Mojahedi M",
+      "Aitchison J S",
+      "Herman P R",
+      "Ruda H"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "laser_fabrication",
+    "name": "Laser Fabrication Lab",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Photonics",
+    "subarea": "Laser Fabrication",
+    "description": "Research on laser-matter interaction physics, 3D laser writing of optical circuits, optofluidics, nanofluidics, and sub-wavelength focusing.",
+    "keywords": [
+      "laser-matter interaction",
+      "3D laser writing",
+      "optical circuits",
+      "optofluidics",
+      "nanofluidics",
+      "smart glass",
+      "lab-in-fibre",
+      "sub-wavelength focusing",
+      "nanofabrication"
+    ],
+    "researchers": [
+      "Herman P R"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "photovoltaics",
+    "name": "Photovoltaics Lab",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Photonics",
+    "subarea": "Photovoltaics",
+    "description": "Research on silicon PV, photonic crystals, nanowire-based and quantum-dot solar cells, and III-Vs on silicon for PV.",
+    "keywords": [
+      "silicon PV",
+      "thin film silicon",
+      "photonic crystals",
+      "nanowire solar cells",
+      "III-V on silicon",
+      "quantum-dot photovoltaics",
+      "solar cells"
+    ],
+    "researchers": [
+      "Kherani N",
+      "Sargent E H",
+      "Ruda H"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "plasmonics",
+    "name": "Plasmonics Research Group",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Photonics",
+    "subarea": "Plasmonics",
+    "description": "Research on light localization and coupled plasmonic-photonic effects in nanowires.",
+    "keywords": [
+      "plasmonics",
+      "light localization",
+      "plasmonic-photonic coupling",
+      "nanowires",
+      "surface plasmons"
+    ],
+    "researchers": [
+      "Helmy A",
+      "Levi O",
+      "Mojahedi M",
+      "Kherani N",
+      "Ruda H"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "quantum_photonics",
+    "name": "Quantum Photonics Lab",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Photonics",
+    "subarea": "Quantum Photonics",
+    "description": "Research on quantum sources including entangled photon sources, quantum cryptography, quantum materials, single photon detectors, and silicon quantum photonic circuits.",
+    "keywords": [
+      "quantum sources",
+      "entangled photons",
+      "quantum cryptography",
+      "quantum materials",
+      "single photon detectors",
+      "silicon quantum photonics",
+      "quantum circuits"
+    ],
+    "researchers": [
+      "Qian L",
+      "Helmy A",
+      "Lo H K",
+      "Ruda H",
+      "Poon J"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "3d_optical_imaging",
+    "name": "3D Optical Imaging Lab",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Photonics",
+    "subarea": "3D Optical Imaging",
+    "description": "Research on omni-focus video cameras, omni-focus laparoscopes, laparoscopic microscopes, super-deep 3D imaging, and Pulfrich effects for amblyopic diagnosis.",
+    "keywords": [
+      "omni-focus camera",
+      "laparoscope",
+      "3D imaging",
+      "super-deep imaging",
+      "Pulfrich effect",
+      "amblyopic diagnosis",
+      "optical imaging"
+    ],
+    "researchers": [
+      "Iizuka K"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "foundations_of_control",
+    "name": "Foundations of Control Research Group",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Systems Control",
+    "subarea": "Foundations of Control",
+    "description": "Research on nonlinear control, game theory, linear geometric control, and input-output operator approaches.",
+    "keywords": [
+      "nonlinear control",
+      "game theory",
+      "linear geometric control",
+      "input-output operator",
+      "control theory",
+      "dynamical systems"
+    ],
+    "researchers": [
+      "Broucke M",
+      "Kwong R",
+      "Maggiore M",
+      "Pavel L",
+      "Scardovi L",
+      "Davison E J"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "robotics",
+    "name": "Robotics Research Group",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Systems Control",
+    "subarea": "Robotics",
+    "description": "Research on robotic swarm coordination, motion control, multi-vehicle systems, virtual holonomic constraints, and nanosatellite formation control.",
+    "keywords": [
+      "robotic swarm",
+      "motion control",
+      "multi-vehicle systems",
+      "holonomic constraints",
+      "nanosatellite formation",
+      "formation control",
+      "robotics"
+    ],
+    "researchers": [
+      "Broucke M",
+      "Maggiore M",
+      "Scardovi L"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "logic_based_control",
+    "name": "Logic-based Control Research Group",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Systems Control",
+    "subarea": "Logic-based Control",
+    "description": "Research on discrete-event systems, hybrid systems, fault detection, control for complex specifications, and reach control.",
+    "keywords": [
+      "discrete-event systems",
+      "hybrid systems",
+      "fault detection",
+      "reach control",
+      "complex specifications",
+      "logic-based control"
+    ],
+    "researchers": [
+      "Broucke M",
+      "Kwong R"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  },
+  {
+    "id": "interconnected_dynamical_systems",
+    "name": "Interconnected Dynamical Systems Research Group",
+    "department": "ECE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Systems Control",
+    "subarea": "Interconnected Dynamical Systems",
+    "description": "Research on adaptive dynamic networks, extremum-seeking control, systems biology, decentralized control, synchronization, and biochemical networks.",
+    "keywords": [
+      "adaptive dynamic networks",
+      "extremum-seeking control",
+      "systems biology",
+      "patterned linear systems",
+      "decentralized control",
+      "large-scale systems",
+      "synchronization",
+      "biochemical networks",
+      "optical communication networks"
+    ],
+    "researchers": [
+      "Broucke M",
+      "Maggiore M",
+      "Pavel L",
+      "Scardovi L",
+      "Davison E J"
+    ],
+    "source": "https://www.ece.utoronto.ca/research/"
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "id": "mie_robotics",
+    "name": "Robotics Research Group",
+    "department": "MIE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Robotics",
+    "subarea": "Robotics",
+    "description": "Research on micro-robotics, autonomous systems, human-robot interaction, medical robotics, and micro-nanosystems.",
+    "keywords": ["micro-robotics", "autonomous systems", "human-robot interaction", "medical robotics", "micro-nanosystems", "swarm coordination", "bio-inspired design", "surgical robotics", "socially assistive robots", "wearable robotics"],
+    "researchers": ["Diller E", "Nejat G", "Sun Y", "Chirarattananon P", "Goldenberg A A", "Naguib H", "Benhabib B", "Liu X"],
+    "source": "https://www.mie.utoronto.ca/research/overview/"
+  },
+  {
+    "id": "mie_mechanics_and_design",
+    "name": "Mechanics & Design Research Group",
+    "department": "MIE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Mechanics & Design",
+    "subarea": "Mechanics & Design",
+    "description": "Research on multidisciplinary engineering design, multiscale analysis, lightweight structures, biomechanics, and nanomechanics.",
+    "keywords": ["multidisciplinary design", "multiscale analysis", "lightweight structures", "biomechanics", "nanomechanics", "nanotribology", "MEMS", "design optimization", "aerospace structures", "finite element analysis"],
+    "researchers": ["Behdinan K", "Filleter T", "Naguib H", "Olechowski A", "Shu L", "Meguid S A", "Ben Mrad R", "Simmons C A", "Azhari F"],
+    "source": "https://www.mie.utoronto.ca/research/overview/"
+  },
+  {
+    "id": "mie_materials",
+    "name": "Materials Research Group",
+    "department": "MIE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Materials",
+    "subarea": "Materials",
+    "description": "Research on smart materials, metamaterials, nanostructured materials, polymer foams, composites, and advanced manufacturing.",
+    "keywords": ["smart materials", "metamaterials", "nanostructured materials", "polymer foams", "composites", "additive manufacturing", "biomaterials", "energy materials", "nano-fabrication", "sustainable materials"],
+    "researchers": ["Naguib H", "Park C B", "Filleter T", "Sain M", "Golovin K", "Kesler O", "Sinton D", "Mandelis A"],
+    "source": "https://www.mie.utoronto.ca/research/overview/"
+  },
+  {
+    "id": "mie_thermofluids",
+    "name": "Thermofluids Research Group",
+    "department": "MIE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Thermofluids",
+    "subarea": "Thermofluids",
+    "description": "Research on fluid mechanics, heat and mass transfer, microfluidics, CO2 capture and conversion, combustion, and energy systems.",
+    "keywords": ["fluid mechanics", "heat transfer", "mass transfer", "microfluidics", "CO2 capture", "CO2 conversion", "combustion", "energy systems", "thermal management", "multiphase flow"],
+    "researchers": ["Sinton D", "Amon C H", "Ashgriz N", "Chandra S", "Dolatabadi A", "Sullivan P E", "Thomson M J", "Bazylak A", "Bussmann M", "Bilton A", "Young E", "Guenther A", "Steinman D A", "Mostaghimi J", "Touchie M"],
+    "source": "https://www.mie.utoronto.ca/research/overview/"
+  },
+  {
+    "id": "mie_human_factors",
+    "name": "Human Factors Research Group",
+    "department": "MIE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Human Factors",
+    "subarea": "Human Factors",
+    "description": "Research on human-automation interaction, cognitive engineering, patient safety, driver distraction, and human-AI interaction.",
+    "keywords": ["human factors", "cognitive engineering", "human-automation interaction", "patient safety", "driver distraction", "human-AI interaction", "usability", "interface design", "healthcare systems", "ergonomics"],
+    "researchers": ["Donmez B", "Jamieson G A", "Alfred M", "Montague E"],
+    "source": "https://www.mie.utoronto.ca/research/overview/"
+  },
+  {
+    "id": "mie_information_engineering",
+    "name": "Information Engineering Research Group",
+    "department": "MIE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Information Engineering",
+    "subarea": "Information Engineering",
+    "description": "Research on data management, knowledge representation, ontologies, enterprise modeling, and information systems.",
+    "keywords": ["data management", "knowledge representation", "ontologies", "enterprise modeling", "information systems", "database systems", "semantic web", "process modeling", "data science"],
+    "researchers": ["Consens M P", "Fox M S", "Gruninger M", "Sanner S"],
+    "source": "https://www.mie.utoronto.ca/research/overview/"
+  },
+  {
+    "id": "mie_operations_research",
+    "name": "Operations Research Research Group",
+    "department": "MIE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Operations Research",
+    "subarea": "Operations Research",
+    "description": "Research on mathematical optimization, stochastic modeling, supply chain management, healthcare operations, and financial engineering.",
+    "keywords": ["mathematical optimization", "stochastic modeling", "supply chain management", "healthcare operations", "financial engineering", "dynamic programming", "scheduling", "simulation", "logistics", "queueing theory"],
+    "researchers": ["Beck C", "Carter M W", "Chan T C Y", "Kwon R H", "Lee C-G", "Lee P C", "Sarhangian V", "Aleman D M", "Mohajerin Esfahani P", "Rao I"],
+    "source": "https://www.mie.utoronto.ca/research/overview/"
+  },
+  {
+    "id": "mie_applied_machine_learning",
+    "name": "Applied Machine Learning Research Group",
+    "department": "MIE, University of Toronto",
+    "category": "research_lab",
+    "research_area": "Applied Machine Learning",
+    "subarea": "Applied Machine Learning",
+    "description": "Research on machine learning, deep learning, reinforcement learning, AI for combinatorial optimization, and data-driven decision making.",
+    "keywords": ["machine learning", "deep learning", "reinforcement learning", "combinatorial optimization", "data-driven decision making", "artificial intelligence", "natural language processing", "healthcare AI", "data science", "scalable data mining"],
+    "researchers": ["Khalil E B", "Cohen E", "Sanner S", "Guerzhoy M", "Aref S"],
+    "source": "https://www.mie.utoronto.ca/research/overview/"
+  }
+]
