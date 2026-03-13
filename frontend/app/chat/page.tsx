@@ -160,22 +160,14 @@ export default function ChatPage() {
                                   {lab.professorName && <>Professor: {lab.professorName}</>}
                                 </p>
                               )}
-                              {lab.description && (
+                              {lab.aiDescription ? (
+                                <div className="prose prose-sm prose-gray max-w-none mt-2 text-xs leading-relaxed [&>p]:my-1 [&>ul]:my-1 [&>ol]:my-1">
+                                  <ReactMarkdown>{lab.aiDescription}</ReactMarkdown>
+                                </div>
+                              ) : (
                                 <p className="text-xs text-gray-600 mt-2 leading-relaxed">
                                   {lab.description}
                                 </p>
-                              )}
-                              {lab.topics && (
-                                <div className="mt-2 flex flex-wrap gap-1.5">
-                                  {lab.topics.split(",").map((topic: string) => (
-                                    <span
-                                      key={topic.trim()}
-                                      className="text-[10px] bg-primary/5 text-primary px-2 py-0.5 rounded-full"
-                                    >
-                                      {topic.trim()}
-                                    </span>
-                                  ))}
-                                </div>
                               )}
                             </div>
                           </div>

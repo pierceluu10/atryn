@@ -35,6 +35,7 @@ export interface Lab {
   topics: string;
   description: string;
   department?: string;
+  aiDescription?: string;
 }
 
 // --- Submission ---

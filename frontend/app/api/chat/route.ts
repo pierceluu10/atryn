@@ -49,20 +49,26 @@ export async function POST(req: NextRequest) {
 
     const systemPrompt = `You are Atryn, a research discovery assistant for students at the University of Toronto. You help students find research labs, professors, and research topics.
 
-CRITICAL RULES:
-- NEVER list individual labs, professor names, or departments in your text. The system displays matching labs as clickable cards automatically below your message. Your text must NOT duplicate them.
-- Write only a short 1-3 sentence summary describing what types of research you found (e.g. "I found some labs focused on optical imaging, medical devices, and biophotonics that relate to your interest in 3D imaging.").
-- Do NOT use bullet points, numbered lists, or headings to describe labs.
-- Do NOT name any specific lab or professor.
-- Only discuss research labs and research topics.
+RULES:
+- Only discuss research labs, professors, and research topics.
 - Do NOT recommend campus services, mental health services, career offices, or non-research resources.
+- Be concise and helpful.
 - Never use em-dashes. Use regular hyphens instead.
 - Refer to yourself as "Atryn" (not "ATRYN").
 
-Available research labs at U of T (for your internal reference only, do NOT list these in your response):
-${labContext}
+When the student asks about labs or research topics, respond with ONLY valid JSON (no text outside it) in this format:
+{"summary":"A brief 1-2 sentence friendly summary.","labs":[{"labName":"Exact Lab Name","description":"A personalized description explaining relevance, key research topics, and why it matches their interest. Use markdown formatting."}]}
 
-Respond with ONLY a brief friendly summary. The labs will be shown as interactive cards separately.`;
+IMPORTANT for lab responses:
+- Use the EXACT lab name from the list below (case-sensitive).
+- Each description should explain relevance, list key topics with "- " bullets, and end with a sentence about fit.
+- Only include relevant labs.
+
+When the student asks a conversational question, follow-up, or something that does not need lab results, respond with:
+{"summary":"Your conversational response here.","labs":[]}
+
+Available research labs at U of T:
+${labContext}`;
 
     const bedrockMessages = [
       ...(conversationHistory || []).map((m: { role: string; content: string }) => ({
@@ -91,30 +97,51 @@ Respond with ONLY a brief friendly summary. The labs will be shown as interactiv
         system: [{ text: systemPrompt }],
         messages: bedrockMessages,
         inferenceConfig: {
-          maxTokens: 150,
+          maxTokens: 2048,
           temperature: 0.7,
         },
       });
 
       const bedrockResponse = await client.send(command);
-      const reply =
+      const rawReply =
         bedrockResponse.output?.message?.content?.[0]?.text ||
-        "I can help you discover research labs at U of T. Try asking about specific research areas!";
+        '{"summary": "I can help you discover research labs at U of T. Try asking about specific research areas!", "labs": []}';
 
-      // Find any labs mentioned in the AI response that keyword matching missed
-      const replyLower = reply.toLowerCase();
-      const matchedIds = new Set(matchedLabs.map((l: Record<string, unknown>) => l.id));
-      const mentionedLabs = labs.filter((lab: Record<string, unknown>) => {
-        if (matchedIds.has(lab.id)) return false;
-        const labName = (lab.labName as string).toLowerCase();
-        return replyLower.includes(labName);
-      });
+      // Parse the JSON response from the AI
+      let reply = "Here are some labs that match your interests.";
+      let aiLabs: { labName: string; description: string }[] = [];
 
-      const allLabs = [...matchedLabs, ...mentionedLabs];
+      try {
+        // Extract JSON from response (handle markdown code blocks)
+        const jsonStr = rawReply.replace(/^```json?\n?/g, "").replace(/\n?```$/g, "").trim();
+        const parsed = JSON.parse(jsonStr);
+        reply = parsed.summary || reply;
+        aiLabs = parsed.labs || [];
+      } catch {
+        // If JSON parsing fails, strip any JSON artifacts and use as plain text
+        const cleaned = rawReply
+          .replace(/```json?\n?/g, "")
+          .replace(/```/g, "")
+          .replace(/^\s*\{[\s\S]*\}\s*$/, "")
+          .trim();
+        reply = cleaned || "I can help you discover research labs at U of T. Try asking about specific areas like machine learning, robotics, or cybersecurity.";
+      }
+
+      // Match AI lab descriptions to actual lab records
+      const responseLabs = aiLabs
+        .map((aiLab: { labName: string; description: string }) => {
+          const match = labs.find(
+            (l: Record<string, unknown>) =>
+              (l.labName as string).toLowerCase() === aiLab.labName.toLowerCase()
+          );
+          if (!match) return null;
+          return { ...match, aiDescription: aiLab.description };
+        })
+        .filter(Boolean);
 
       return NextResponse.json({
         reply,
-        labs: allLabs.length > 0 ? allLabs : undefined,
+        labs: responseLabs.length > 0 ? responseLabs : matchedLabs.length > 0 ? matchedLabs : undefined,
       });
     } catch (bedrockError) {
       console.error("Bedrock API error:", bedrockError);
