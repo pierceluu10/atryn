@@ -27,9 +27,9 @@ export type AppUser = StudentUser | ProfessorUser;
 
 // --- Lab ---
 export interface Lab {
-  id: number;
+  id: number | string;
   labName: string;
-  professorId: number;
+  professorId: number | null;
   professorName?: string;
   professorEmail?: string;
   topics: string;

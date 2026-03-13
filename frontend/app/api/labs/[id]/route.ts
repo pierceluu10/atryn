@@ -7,7 +7,7 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
-    const lab = await getLabById(Number(id));
+    const lab = await getLabById(id);
 
     if (!lab) {
       return NextResponse.json({ error: "Lab not found" }, { status: 404 });

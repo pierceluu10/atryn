@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getDb } from "@/lib/db";
 import { getAuthUser } from "@/lib/auth";
+import { getAllLabs } from "@/lib/dynamodb";
 
 export async function GET(req: NextRequest) {
   try {
@@ -11,29 +12,27 @@ export async function GET(req: NextRequest) {
 
     const db = getDb();
 
-    // Get all labs owned by this professor
-    const labs = db.prepare("SELECT id FROM labs WHERE professorId = ?").all(user.id) as { id: number }[];
-    const labIds = labs.map((l) => l.id);
-
-    if (labIds.length === 0) {
-      return NextResponse.json([]);
-    }
-
-    const placeholders = labIds.map(() => "?").join(",");
+    // Get all submissions with student info
     const submissions = db.prepare(`
       SELECT s.id, s.studentId, s.labId, s.videoUrl, s.status, s.createdAt,
              st.name as studentName, st.email as studentEmail,
              st.program as studentProgram, st.year as studentYear,
-             st.interests as studentInterests,
-             l.labName
+             st.interests as studentInterests
       FROM submissions s
       LEFT JOIN students st ON s.studentId = st.id
-      LEFT JOIN labs l ON s.labId = l.id
-      WHERE s.labId IN (${placeholders})
       ORDER BY s.createdAt DESC
-    `).all(...labIds);
+    `).all() as Record<string, unknown>[];
 
-    return NextResponse.json(submissions);
+    // Look up lab names from DynamoDB
+    const labs = await getAllLabs();
+    const labMap = new Map(labs.map((l) => [String(l.id), l.labName]));
+
+    const enriched = submissions.map((s) => ({
+      ...s,
+      labName: labMap.get(String(s.labId)) || "Unknown Lab",
+    }));
+
+    return NextResponse.json(enriched);
   } catch (error: unknown) {
     console.error("Professor submissions error:", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });

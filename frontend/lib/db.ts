@@ -53,12 +53,11 @@ function initTables(db: Database.Database) {
     CREATE TABLE IF NOT EXISTS submissions (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       studentId INTEGER NOT NULL,
-      labId INTEGER NOT NULL,
+      labId TEXT NOT NULL,
       videoUrl TEXT NOT NULL DEFAULT '',
       status TEXT NOT NULL DEFAULT 'pending',
       createdAt TEXT NOT NULL DEFAULT (datetime('now')),
-      FOREIGN KEY (studentId) REFERENCES students(id),
-      FOREIGN KEY (labId) REFERENCES labs(id)
+      FOREIGN KEY (studentId) REFERENCES students(id)
     );
   `);
 }

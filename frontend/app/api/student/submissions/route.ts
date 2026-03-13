@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getDb } from "@/lib/db";
 import { getAuthUser } from "@/lib/auth";
+import { getAllLabs } from "@/lib/dynamodb";
 
 export async function GET(req: NextRequest) {
   try {
@@ -11,15 +12,22 @@ export async function GET(req: NextRequest) {
 
     const db = getDb();
     const submissions = db.prepare(`
-      SELECT s.id, s.studentId, s.labId, s.videoUrl, s.status, s.createdAt,
-             l.labName
-      FROM submissions s
-      LEFT JOIN labs l ON s.labId = l.id
-      WHERE s.studentId = ?
-      ORDER BY s.createdAt DESC
-    `).all(user.id);
+      SELECT id, studentId, labId, videoUrl, status, createdAt
+      FROM submissions
+      WHERE studentId = ?
+      ORDER BY createdAt DESC
+    `).all(user.id) as { id: number; studentId: number; labId: string; videoUrl: string; status: string; createdAt: string }[];
 
-    return NextResponse.json(submissions);
+    // Look up lab names from DynamoDB
+    const labs = await getAllLabs();
+    const labMap = new Map(labs.map((l) => [String(l.id), l.labName]));
+
+    const enriched = submissions.map((s) => ({
+      ...s,
+      labName: labMap.get(String(s.labId)) || "Unknown Lab",
+    }));
+
+    return NextResponse.json(enriched);
   } catch (error: unknown) {
     console.error("Student submissions error:", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });

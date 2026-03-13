@@ -143,8 +143,9 @@ ${labContext}`;
         reply,
         labs: responseLabs.length > 0 ? responseLabs : matchedLabs.length > 0 ? matchedLabs : undefined,
       });
-    } catch (bedrockError) {
-      console.error("Bedrock API error:", bedrockError);
+    } catch (bedrockError: unknown) {
+      const errMsg = bedrockError instanceof Error ? bedrockError.message : String(bedrockError);
+      console.error("Bedrock API error:", errMsg);
       return NextResponse.json({
         reply: "I found some relevant labs for you below! Click on any lab to learn more.",
         labs: matchedLabs.length > 0 ? matchedLabs : undefined,

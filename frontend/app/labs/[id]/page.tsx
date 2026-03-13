@@ -65,7 +65,7 @@ export default function LabDetailPage({ params }: { params: Promise<{ id: string
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ labId: Number(id), videoUrl }),
+        body: JSON.stringify({ labId: id, videoUrl }),
       });
 
       if (res.ok) {

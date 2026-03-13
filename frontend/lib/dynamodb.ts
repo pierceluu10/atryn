@@ -21,9 +21,9 @@ export interface DynamoLab {
 }
 
 /** Map DynamoDB item → shape the frontend already expects */
-function toFrontendLab(item: DynamoLab, index: number) {
+function toFrontendLab(item: DynamoLab) {
   return {
-    id: index + 1,
+    id: item.id,
     labName: item.name,
     professorId: null,
     professorName: item.researchers?.length ? item.researchers.join(", ") : null,
@@ -31,7 +31,6 @@ function toFrontendLab(item: DynamoLab, index: number) {
     topics: (item.keywords ?? []).join(", "),
     description: item.description ?? "",
     department: item.department ?? "",
-    dynamoId: item.id, // keep the original DynamoDB id for lookups
   };
 }
 
@@ -54,11 +53,11 @@ export async function getAllLabs() {
     lastKey = result.LastEvaluatedKey;
   } while (lastKey);
 
-  cachedLabs = items.map((item, i) => toFrontendLab(item, i));
+  cachedLabs = items.map((item) => toFrontendLab(item));
   return cachedLabs;
 }
 
-export async function getLabById(id: number) {
+export async function getLabById(id: string) {
   const labs = await getAllLabs();
   return labs.find((l) => l.id === id) ?? null;
 }
