@@ -2,7 +2,7 @@
 
 *All the Research You Need*
 
-**ATRYN** is an AI-powered research discovery platform for the University of Toronto. Students can chat with an AI assistant to find research opportunities, connect with professors, and submit video introductions.
+**ATRYN** is an AI-powered research discovery platform for the University of Toronto. Students can chat with an AI assistant to find research opportunities and connect with professors through video introductions that capture their real personalities.
 
 [**CHECK IT OUT**](https://devpost.com/software/atryn)
 
@@ -54,47 +54,3 @@
 | **Amazon S3** | Video file storage with public read |
 | **Amazon DynamoDB** | Managed NoSQL database |
 | **Lucide React** | Icons |
-
-## Getting Started
-
-### Prerequisites
-
-- **Node.js 18+**
-- **npm**
-- **AWS CLI v2** (for Bedrock and S3)
-
-### 1. Clone and install
-
-```bash
-git clone https://github.com/pierceluu10/research.git
-cd research/frontend
-npm install
-```
-
-### 2. Set up AWS credentials
-
-Create `frontend/.env.local` with your AWS credentials. To run without AWS, set `MOCK_AI=true`.
-
-### 3. Enable Bedrock model access
-
-1. Open **AWS Console > Amazon Bedrock > Model access**
-2. Enable **Anthropic Claude Opus 4.6**
-3. If your IAM role lacks permissions, attach the policy in `bedrock-policy.json`
-
-### 4. Create S3 bucket (for video uploads)
-
-```bash
-aws s3 mb s3://atryn-videos --region us-west-2
-```
-
-See `infrastructure/` for CORS and bucket policy configs.
-
-### 5. Run the app
-
-```bash
-cd frontend
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000).
-
