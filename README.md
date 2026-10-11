@@ -6,6 +6,20 @@
 
 [**CHECK IT OUT**](https://devpost.com/software/atryn)
 
+## Screenshots
+
+### Landing page
+
+The public introduction to research discovery at the University of Toronto.
+
+<img width="1200" alt="Atryn public research discovery landing page" src="docs/screenshots/landing.jpg" />
+
+### Account registration
+
+The public sign-up form for a student profile and research interests.
+
+<img width="1200" alt="Atryn registration form for student details and research interests" src="docs/screenshots/registration.jpg" />
+
 ## Architecture
 
 <div align="center">
